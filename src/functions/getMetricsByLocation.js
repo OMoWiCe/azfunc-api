@@ -54,8 +54,8 @@ module.exports = async function (context, req) {
       ? -1
       : 0;
 
-    // Step 2: Get today's hourly average live count (for testing: 2025-04-15 03:00:42.8696050)
-    const todayStart = new Date(latest.DATE);
+    // Step 2: Get today's hourly average live count
+    const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
 
     const { recordset: hourly } = await pool
