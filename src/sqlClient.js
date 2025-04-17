@@ -1,5 +1,6 @@
 const sql = require("mssql");
 
+// Configuration for SQL Server connection
 const config = {
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
@@ -9,13 +10,23 @@ const config = {
     encrypt: true,
     enableArithAbort: true,
   },
+  connectionTimeout: 60000, // 60 seconds to connect
+  requestTimeout: 120000, // 2 minutes for queries
 };
 
 let pool;
 
+// Connecting to SQL Server and creating a connection pool
 async function getPool() {
   if (!pool) {
-    pool = await sql.connect(config);
+    console.log("Connecting to SQL Server...");
+    try {
+      pool = await sql.connect(config);
+      console.log("Connected to SQL Server");
+    } catch (err) {
+      console.error("SQL connection error:", err);
+      throw err;
+    }
   }
   return pool;
 }
