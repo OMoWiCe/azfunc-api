@@ -19,12 +19,12 @@ let pool;
 // Connecting to SQL Server and creating a connection pool
 async function getPool() {
   if (!pool) {
-    console.log("Connecting to SQL Server...");
+    console.log("[OMOWICE-API] Connecting to SQL Server...");
     try {
       pool = await sql.connect(config);
-      console.log("Connected to SQL Server");
+      console.log("[OMOWICE-API] Connected to SQL Server");
     } catch (err) {
-      console.error("SQL connection error:", err);
+      console.error("[OMOWICE-API] SQL connection error:", err);
       throw err;
     }
   }

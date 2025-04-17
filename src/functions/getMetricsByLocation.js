@@ -99,7 +99,7 @@ module.exports = async function (context, req) {
       },
     };
   } catch (err) {
-    console.error("Metric by location error:", err);
+    console.error("[OMOWICE-API] Metric by location error:", err);
     // Handle Timeout error specifically
     if (err.code === "ETIMEOUT") {
       return {

@@ -42,7 +42,7 @@ module.exports = async function (context, req) {
       jsonBody: result.recordset,
     };
   } catch (err) {
-    console.error("Search error:", err);
+    console.error("[OMOWICE-API] Search error:", err);
     // Handle Timeout error specifically
     if (err.code === "ETIMEOUT") {
       return {

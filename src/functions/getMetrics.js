@@ -80,7 +80,7 @@ module.exports = async function (context, req) {
       jsonBody: output,
     };
   } catch (err) {
-    console.error("Metrics fetch error:", err);
+    console.error("[OMOWICE-API] Metrics fetch error:", err);
     // Handle Timeout error specifically
     if (err.code === "ETIMEOUT") {
       return {
